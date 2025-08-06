@@ -1,10 +1,24 @@
 # se importala libreria tkinter 
 from tkinter import *
+from tkinter import messagebox
 # -----------------------------
 # funciones de la app 
 # -----------------------------
 
+def sumar(): 
+    messagebox.showinfo("suma 1.0", "los datos se sumaran ")
+    c = int (a.get()) + int(b.get())
+    t_resultados.insert(INSERT, "la suma de "+ a.get() + "+" + b.get() + "casi siempre es" + str(c) + "/n" )
 
+def borrar():
+    messagebox.showinfo("suma 1.0", "los datos seran borrados")
+    a.set("")
+    b.set("")
+    t_resultados.delete("1.0", "end")
+
+def salir():
+    messagebox.showinfo("suma 1.0", "la app se cerrara")
+    ventana_principal.destroy()
 # -----------------------------
 # ve ntana principal de la app
 # -----------------------------
@@ -52,7 +66,7 @@ label_logo = Label (frame_1,image=logo)
 label_logo.place(x=10,y=10)
 
 img_bt_sumar = PhotoImage(file="img/boton_sumar.png")
-bt_sumar = Button(frame_1, image= img_bt_sumar, width= 105, height= 105)
+bt_sumar = Button(frame_1, image= img_bt_sumar, width= 105, height= 105, command= sumar)
 # bt_sumar = Button(frame_2, text="sumar", width=10)
 bt_sumar.place(x=600, y=95)
 
@@ -111,7 +125,7 @@ frame_2.place(x=10, y=260)
 # ----------------------------
 
 img_bt_borrar = PhotoImage(file="img/boton_borrar.png")
-bt_borrar = Button(frame_2, image= img_bt_borrar, width= 105, height= 105)
+bt_borrar = Button(frame_2, image= img_bt_borrar, width= 105, height= 105, command=borrar)
 # bt_sumar = Button(frame_2, text="sumar", width=10)
 bt_borrar.place(x=150, y=7)
 
@@ -120,7 +134,7 @@ bt_borrar.place(x=150, y=7)
 # ----------------------------
 
 img_bt_Salir = PhotoImage(file="img/boton_salir.png")
-bt_salir = Button(frame_2, image= img_bt_Salir, width= 105, height= 105)
+bt_salir = Button(frame_2, image= img_bt_Salir, width= 105, height= 105, command = salir)
 # bt_sumar = Button(frame_2, text="sumar", width=10)
 bt_salir.place(x=558, y=7)
 
